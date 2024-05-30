@@ -1,0 +1,22 @@
+name: CD Pipeline
+
+on:
+  workflow_run:
+    workflows: ["CI Pipeline"]
+    types:
+      - completed
+
+jobs:
+
+  build:
+
+    runs-on: self-hosted
+
+    steps:
+    - name: Pull Docker image
+      run: sudo docker pull saiid21/info408-cicd:latest
+    - name: Delete Old Docker container
+      run: sudo docker rm -f info408-cicd-container || true
+    - name: Run Docker container
+      run: sudo docker run -d -p 8000:8000 --name info408-cicd-container saiid21/info408-cicd
+
