@@ -20,6 +20,6 @@ jobs:
     - name: Build the Docker image
       run: docker build -t info408-cicd .
     - name: Tag the Docker image
-      run: docker tag info408-cicd saiid21/todolist-cicd:latest
+      run: docker tag info408-cicd saiid21/info408-cicd:latest
     - name: Push to Dockerhub
       run: docker push saiid21/info408-cicd:latest
