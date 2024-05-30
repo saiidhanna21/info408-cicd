@@ -5,7 +5,7 @@ const app = express()
 app.get('/', (req, res) => {
     res.json({
         status: 200,
-        message: "Testing My First Website using CiCd Pipeline"
+        message: "Testing My First Website using CiCd Pipeline Updated"
     })
 })
 
